@@ -1,30 +1,18 @@
-// App.js
-
 import React, { useState } from 'react';
-import Filter from './components/Filter';
-import ItemForm from './components/ItemForm';
+import Filter from './Filter'; // Adjust the import path here
 
-function App() {
-  // State and functions to handle form submissions and search changes
-  const [items, setItems] = useState([]);
+const App = () => {
+  const [search, setSearch] = useState('');
 
-  const handleSearchChange = (searchText) => {
-    // Logic to filter items based on search text
-  };
-
-  const handleItemFormSubmit = (newItem) => {
-    // Logic to add new item to the list
+  const handleSearchChange = (searchTerm) => {
+    setSearch(searchTerm);
   };
 
   return (
     <div>
-      <h1>Shopping List</h1>
-      <Filter onSearchChange={handleSearchChange} />
-      <ItemForm onItemFormSubmit={handleItemFormSubmit} />
-      {/* Render your list of items here */}
+      <Filter search={search} onSearchChange={handleSearchChange} />
     </div>
   );
-}
+};
 
 export default App;
-
